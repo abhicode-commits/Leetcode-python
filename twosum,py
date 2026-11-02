@@ -1,0 +1,17 @@
+class Solution:
+
+    def twoSum(self, nums: list[int], target: int) -> list[int]:
+        # Dictionary to store the number and its corresponding index
+        num_map = {}
+
+        for index, num in enumerate(nums):
+            complement = target - num
+
+            # If the complement exists in the map, we found our pair
+            if complement in num_map:
+                return [num_map[complement], index]
+
+            # Otherwise, store the index of the current number
+            num_map[num] = index
+
+        return []  # Fallback, though constraints guarantee a solution
